@@ -1,0 +1,43 @@
+<html>
+<head>
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+	<video id="localVideo" autoplay muted></video>
+  	<video id="remoteVideo" autoplay muted></video>
+  	<div>
+	    <button id="startButton">Start</button>
+	    <button id="callButton">Call</button>
+	    <button id="hangupButton">Hang Up</button>
+  </div>
+</body>
+<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+	<script>
+		var localVideo = document.getElementById("localVideo");
+		var remoteVideo = document.getElementById("remoteVideo");
+		var localStream, localPeerConnection, remotePeerConnection;
+
+		
+
+		call.on('stream', function(stream) {
+		  // `stream` is the MediaStream of the remote peer.
+		  // Here you'd add it to an HTML video/canvas element.
+		});
+
+		var constraints = {audio: true, video: false};
+
+		function successCallback(stream) {
+		  localVideo.src = URL.createObjectURL(stream);
+  		  localStream = stream;
+  		  var peer = new Peer({key: 'mhrktbbozxs9k9'});
+
+		  var call = peer.call('dest-peer-id', mediaStream);
+		}
+
+		function errorCallback(error){
+		  console.log("getUserMedia error: ", error);
+		}
+
+		getUserMedia(constraints, successCallback, errorCallback);
+	</script>
+</html>
