@@ -1,5 +1,5 @@
 var PeerServer = require('peer').PeerServer;
-var peerserver = PeerServer({port: 9000, path: '/letstalk'});
+var peerserver = PeerServer({port: 9000, path: '/letstalkpeer'});
 
 
 peerserver.on('connection', function(id) {  
